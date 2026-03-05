@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> منصة كوادر بيحان | الرؤية المستقبلية لبيحان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="thankYouModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 23, 42, 0.9); z-index:9999; justify-content:center; align-items:center; padding: 20px;">
+    <div class="modern-card" style="max-width:400px; text-align:center; padding:2rem; border:1px solid var(--primary); background: var(--bg-dark);">
+        <i class="fas fa-check-circle" style="font-size: 4rem; color: #4ade80; margin-bottom: 1rem;"></i>
+        <h2 style="margin-bottom: 1rem;">تم الإرسال بنجاح!</h2>
+        <p style="color: var(--text-dim); margin-bottom: 2rem;">شكراً لك، تم توثيق بياناتك في منصة كوادر بنجاح.</p>
+        <button class="btn-grad" onclick="closeModal()" style="width: 100%;">إغلاق</button>
+    </div>
+</div>
+
+<body>
+
+    <div class="bg-animate">
+        <div class="blob"></div>
+    </div>
+
+    <header>
+<div class="logo">
+    <i class="fas fa-bolt"></i>
+    <span>COAD<span class="highlight-r">R</span></span>
+</div>
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#profile">التسجيل</a>
+            <a href="#about">عنا</a>
+            <a href="#conect">تابعنا </a>
+        </nav>
+        <button class="btn-grad" style="padding: 8px 20px; font-size: 0.9rem;" onclick="location.href='#conect'">تابعنا</button>
+    </header>
+
+    <main>
+      
+<section id="home" class="hero">
+    <h1 class="title">منصة <span>كوادر بيحان</span> الرقمية</h1>
+
+    <p class="subtitle">
+        <span>طموحك يجد مكانه</span>
+    </p>
+<p class="description" id="typing-text"></p>
+
+
+    <div class="btn-box">
+    <button class="btn-grad" onclick="showProfileSection()">
+        <span class="btn-text">سجل بياناتك</span>
+        <i class="fas fa-pen-nib btn-icon"></i> </button>
+</div>
+
+    </div>
+</section>
+        <section id="features" class="section-padding">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">لماذا منصة كوادر؟</h2>
+                <p style="color: var(--text-dim);">حيث يلتقي الشغف بالفرصة</p>
+            </div>
+            <div class="grid-modern">
+                <div class="modern-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>طور افكارك  </h3>
+                    <p>تمكين المستفيدين من الاستفادة من الخبرات المتبادلة، مما يساعد على رفع الكفاءة المهنية</p>
+                </div>
+                <div class="modern-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>بيانات آمنة</h3>
+                    <p>منصة كوادر تجمع بيانات المتخصصين في مختلف المجالات، وتُرتّبها باحترافية لتكون مرجعًا موثوقًا للباحثين عن الخبرات,وتخزين البيانات بهدف عرضها للشركات والجهات الباحثة عن موظفين أو متعاونين</p>
+                </div>
+                <div class="modern-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>تطوير مهارات</h3>
+                    <p>نساعد الكوادر على تنمية قدراتهم من خلال التواصل، والتفاعل، والاستفادة من خبرات الآخرين</p>
+                </div>
+                <div class="modern-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>تواصل عالمي</h3>
+                    <p>نوفر قروبات خاصة تضم كوادر بخبرات عالية لتبادل المعرفة، وطرح التجارب، وبناء روابط مهنية قوية</p>
+                </div>
+            </div>
+        </section>
+
+<section id="profile" class="section-padding" style="display: none;">
+
+            <div class="form-container">
+                <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 2rem;">بياناتك</h2>
+                <div id="success-message" 
+     style="display:none; background:#1e293b; padding:15px; color:#4ade80; 
+     border:1px solid #4ade80; border-radius:10px; text-align:center; margin-bottom:20px;">
+     ✔ تم إرسال البيانات بنجاح
+</div>
+<form id="cadersForm">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="grid-modern" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px;">
+                        <div class="input-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" name="fullName" placeholder="الاسم كما في الهوية" required>
+                        </div>
+<div class="input-group">
+    <label>المديريه:</label>
+    <select name="governorate" id="governorate">
+        <option value="">اختر المديريه </option>
+        <option value="بيحان">بيحان</option>
+                <option value="عسيلان">عسيلان</option>
+        <option value="عين">عين</option>
+
+    </select> 
+    <div class="input-group">
+    <label for="village-name"> اسم القرية او اسم المنطقه:</label>
+    <input type="text" id="village-name" name="village_name" placeholder="أدخل اسم قريتك او اسم منطقتك هنا" required>
+</div>
+
+    
+
+                        <div class="input-group">
+    <label>المؤهل العلمي / نوع الشهادة:</label>
+    <select name="qualification" id="qualification" required>
+        <option value="">اختر المؤهل</option>
+        <option value="دكتوراه">دكتوراه</option>
+        <option value="ماجستير">ماجستير</option>
+        <option value="دبلوم عالي">دبلوم عالي</option>
+        <option value="بكالوريوس">بكالوريوس </option>
+        <option value="دبلوم متوسط">دبلوم (سنتين بعد الثانوية)</option>
+        <option value="ثانوية">ثانوية عامة</option>
+        <option value="شهادة مهنية">شهادة مهنية / تقنية</option>
+        <option value="مازلت أدرس">مازلت أدرس </option>
+        
+
+    </select>
+</div>
+
+
+<div class="input-group">
+    <label>نوع الجامعة</label>
+    <select id="university-type" onchange="updateUniversityList()">
+        <option value="">اختر نوع الجامعة</option>
+        <option value="government">جامعات حكومية</option>
+        <option value="private">جامعات خاصة</option>
+        <option value="other_uni">أخرى (خارج اليمن)</option>
+    </select>
+</div>
+
+<div class="input-group" id="uni-list-wrapper" style="display:none;">
+    <label>اسم الجامعة</label>
+    <select name="university" id="university-select" required>
+        <option value="">اختر الجامعة</option>
+    </select>
+</div>
+<div id="other-uni-wrapper" class="input-group" style="display:none; ">
+    <input type="text" name="other_university" id="other_university" placeholder="اكتب اسم الجامعة هنا بالتفصيل...">
+</div>
+
+
+ <div class="input-group">
+      <label>التخصص الرئيسي</label>
+      <select name="mainSpecialty" id="main-specialty" required>
+        <option value="">اختر التخصص الرئيسي</option>
+        <option value="engineering">الهندسة</option>
+        <option value="medicine">الطب والصحة</option>
+        <option value="law">القانون والعدالة</option>
+        <option value="education">التربية والتعليم</option>
+        <option value="it">تقنية المعلومات</option>
+        <option value="business">إدارة الأعمال</option>
+        <option value="media">الإعلام والصحافة</option>
+        <option value="design">التصميم والفنون</option>
+        <option value="aviation">الطيران</option>
+        <option value="military">القوات المسلحة</option>
+        <option value="science">العلوم</option>
+        <option value="agriculture">الزراعة</option>
+        <option value="logistics">اللوجستيات والنقل</option>
+        <option value="tourism">السياحة والفنادق</option>
+        <option value="sports">الرياضة والتربية البدنية</option>
+        <option value="finance">المالية والمحاسبة</option>
+        <option value="marketing">التسويق والإعلان</option>
+        <option value="hr">الموارد البشرية</option>
+        <option value="environment">البيئة والاستدامة</option>
+        <option value="psychology">علم النفس</option>
+        <option value="languages">اللغات والترجمة</option>
+        <option value="history">التاريخ والآثار</option>
+        <option value="other-main">أخرى</option>
+      </select>
+      <input type="text" id="main-other" placeholder="اكتب التخصص الرئيسي" style="display:none;">
+    </div>
+
+        <div class="input-group">
+      <label>نوع التخصص</label>
+      <select name="subSpecialty" id="sub-specialty" required>
+        <option value="">اختر نوع التخصص</option>
+      </select>
+      <input type="text" id="sub-other" placeholder="اكتب نوع التخصص" style="display:none;">
+    </div>
+
+
+
+<div class="input-group">
+  <label>أين تعمل حالياً؟</label>
+  <select name="country" id="country" required>
+
+        <option value="">اختر البلد</option>
+        <option value="اليمن">اليمن</option>
+        <option value="السعودية">السعودية</option>
+        <option value="الإمارات">الإمارات</option>
+        <option value="قطر">قطر</option>
+        <option value="الكويت">الكويت</option>
+        <option value="البحرين">البحرين</option>
+        <option value="عُمان">عُمان</option>
+        <option value="مصر">مصر</option>
+        <option value="الأردن">الأردن</option>
+        <option value="العراق">العراق</option>
+        <option value="سوريا">سوريا</option>
+        <option value="لبنان">لبنان</option>
+        <option value="فلسطين">فلسطين</option>
+        <option value="تركيا">تركيا</option>
+        <option value="السودان">السودان</option>
+        <option value="المغرب">المغرب</option>
+        <option value="تونس">تونس</option>
+        <option value="الجزائر">الجزائر</option>
+        <option value="ليبيا">ليبيا</option>
+        <option value="الصومال">الصومال</option>
+        <option value="موريتانيا">موريتانيا</option>
+        <option value="جيبوتي">جيبوتي</option>
+        <option value="فرنسا">فرنسا</option>
+        <option value="ألمانيا">ألمانيا</option>
+        <option value="إيطاليا">إيطاليا</option>
+        <option value="أمريكا / كندا">أمريكا / كندا</option>
+        <option value="بريطانيا">بريطانيا</option>
+        <option value="أستراليا">أستراليا</option>
+        <option value="الهند">الهند</option>
+        <option value="الصين">الصين</option>
+        <option value="اليابان">اليابان</option>
+        <option value="كوريا الجنوبية">كوريا الجنوبية</option>
+        <option value="إندونيسيا">إندونيسيا</option>
+        <option value="ماليزيا">ماليزيا</option>
+        <option value="other">أخرى (اذكرها)</option>
+      </select>
+<div id="other-country-wrapper" class="input-group" style="display: none;">
+    <input type="text" name="other_country" id="other_country" placeholder="اكتب اسم الدولة هنا">
+</div>
+
+
+
+
+
+
+
+
+    <div class="input-group">
+      <label>الخبرات</label>
+      <textarea name="experience" id="experience" rows="3" placeholder="اكتب خبراتك"></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>المهارات</label>
+      <textarea name="skills" id="skills" rows="3" placeholder="اكتب مهاراتك"></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>المشاريع</label>
+      <textarea name="projects" id="projects" rows="3" placeholder="اكتب مشاريعك"></textarea>
+    </div>
+                      <div class="input-group">
+    <label>رقم الجوال</label>
+    <div class="phone-group" style="display:flex; gap:10px; direction: ltr;">
+        <select name="phoneKey" id="phone-key" style="flex: 0 0 135px; background: rgba(15, 23, 42, 0.8);">
+            <option value="+967" data-len="9">🇾🇪 +967</option>
+            <option value="+966" data-len="9">🇸🇦 +966</option>
+            <option value="+971" data-len="9">🇦🇪 +971</option>
+            <option value="+965" data-len="8">🇰🇼 +965</option>
+            <option value="+974" data-len="8">🇶🇦 +974</option>
+            <option value="+968" data-len="8">🇴🇲 +968</option>
+            <option value="+973" data-len="8">🇧🇭 +973</option>
+            <option value="+20" data-len="10">🇪🇬 +20</option>
+            <option value="+962" data-len="9">🇯🇴 +962</option>
+            <option value="+964" data-len="10">🇮🇶 +964</option>
+            <option value="+961" data-len="8">🇱🇧 +961</option>
+            <option value="+963" data-len="9">🇸🇾 +963</option>
+            <option value="+970" data-len="9">🇵🇸 +970</option>
+            <option value="+249" data-len="9">🇸🇩 +249</option>
+            <option value="+212" data-len="9">🇲🇦 +212</option>
+            <option value="+216" data-len="8">🇹🇳 +216</option>
+            <option value="+213" data-len="9">🇩🇿 +213</option>
+            <option value="+218" data-len="9">🇱🇾 +218</option>
+            <option value="+252" data-len="9">🇸🇴 +252</option>
+            <option value="+222" data-len="8">🇲🇷 +222</option>
+            <option value="+90" data-len="10">🇹🇷 +90</option>
+            <option value="+1" data-len="10">🇺🇸 +1</option>
+            <option value="+44" data-len="10">🇬🇧 +44</option>
+            <option value="+49" data-len="11">🇩🇪 +49</option>
+            <option value="+33" data-len="9">🇫🇷 +33</option>
+            <option value="+91" data-len="10">🇮🇳 +91</option>
+            <option value="+60" data-len="9">🇲🇾 +60</option>
+        </select>
+        
+        <input type="tel" name="phone" id="phone" placeholder="77xxxxxxx" required style="flex: 1;" 
+               oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+    </div>
+    <small id="phone-hint" style="color: var(--text-dim); font-size: 0.8rem; margin-top: 5px; display: block;"></small>
+</div>
+
+                        <div class="input-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" name="email" placeholder="example@mail.com" required>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-grad">إرسال وتوثيق البيانات</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding" style="text-align: center;">
+          <div class="about-container">
+    <div class="about-header">
+        <h1 class="highlight-text">قصتنا.. شغفنا.. ورؤيتنا</h1>
+     
+        <p>
+                   
+   نحن لا نبني قاعدة بيانات فقط.نحن نبني مستقبلاً مهنياً 
+يجمع الكوادر الوطنية 
+           </p>
+        
+    </div>
+
+    <div class="bento-grid">
+        <div class="bento-card col-8">
+            <div class="icon-box"><i class="fas fa-fingerprint"></i></div>
+            <h3 style="font-size: 2rem; margin-bottom: 15px;">من نحن؟</h3>
+            <p style="font-size: 1.2rem; color: #94a3b8;">
+                منصة <strong>كوادِر</strong> هي المبادرة الرقمية الأولى من نوعها لتوثيق وتنظيم الكفاءات المهنية. نحن حلقة الوصل التي تذيب المسافات بين الموهبة والفرصة.
+            </p>
+        </div>
+
+        <div class="bento-card col-4 stats-card">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">مجتمعنا الآن</p>
+            <h2 style="font-size: 4.5rem; font-weight: 900; margin: 10px 0;">+150</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">كادر متخصص وموثق</p>
+        </div>
+
+        <div class="bento-card col-6">
+            <div class="icon-box" style="color: #f59e0b;"><i class="fas fa-eye"></i></div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 15px;">رؤيتنا</h3>
+            <p style="color: #94a3b8;">أن نكون المرجع السيادي الأول والموثوق لكل المؤسسات الباحثة عن التميز البشري من خلال نظام ربط ذكي.</p>
+        </div>
+
+        <div class="bento-card col-6">
+            <div class="icon-box" style="color: #4ade80;"><i class="fas fa-rocket"></i></div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 15px;">مهمتنا</h3>
+            <p style="color: #94a3b8;">تمكين الكوادر من إبراز مهاراتهم في فضاء رقمي آمن، وضمان وصول الكفاءة المناسبة إلى المكان المناسب.</p>
+        </div>
+    </div>
+</div>
+
+                         </section>
+
+    </main>
+
+<footer class="modern-footer">
+    <div class="footer-container">
+        <div class="footer-column brand-col">
+            <a href="#" class="footer-logo">COAD<span>R</span></a>
+            <p class="brand-desc">نحن نبني المستقبل الرقمي للكوادر المهنية، حيث تلتقي التكنولوجيا بالطموح لخلق فرص لا حدود لها.</p> 
+
+
+        </div>
+
+        <div class="footer-column">
+            <h3>المنصة</h3>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">عنا</a></li>
+                <li><a href="#conect">تابعنا</a></li>
+                <li><a href="#profile">التسجيل</a></li>
+                                <li><a href="#contact2">اتواصل معنا</a></li>
+            </ul>
+        </div>
+
+
+        </div>
+        <section id="contact2" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-header">
+
+            <h2> <span>اتواصل</span> معنا</h2>
+          
+        </div>
+
+       <div class="contact-grid">
+    <div class="contact-info">
+        
+        <a href="mailto:coadrs30m@gmail.com" class="info-card-link">
+            <div class="info-card">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                <div class="info-text">
+                    <h4>البريد الإلكتروني</h4>
+                    <p>coadrs30m@gmail.com</p>
+                </div>
+            </div>
+        </a>
+
+
+
+    </div>
+</div>
+
+
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-text">
+                        <h4>المقر الرئيسي</h4>
+                        <p>لايوجد مكان رسمي سوى موقعنا هذا</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section><section id="conect" class="social-modern-section">
+    <div class="social-wrapper">
+        <div class="social-text-side">
+            <span class="badge">مجتمعنا الرقمي</span>
+            <h2>تابعنا على <span>مواقع التواصل</span></h2>
+            <p>كن جزءاً من عائلة "كوادر" وتواصل مع الخبراء والمبدعين في كافة المجالات عبر منصاتنا المختلفة.</p>
+        </div>
+
+        <div class="social-icons-side">
+            <a href="https://t.me/coadrs_Bot" class="s-card tg" data-name="تليجرام">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb7iVT62ER6isA3HA51U" class="s-card wa" data-name="واتساب">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://ig.me/j/AbYM-AHPrPvoF1fo/" class="s-card ig" data-name="إنستغرام">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1TAKe71Gzm/" class="s-card fb" data-name="فيسبوك">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-content">
+                      <p>© 2026 منصة كوادر بيحان الرقمية. جميع الحقوق محفوظة.</p
+
+            <div class="bottom-links">
+                <span class="status-dot"></span>
+                <span>تصميم م.وليد الفقير</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
